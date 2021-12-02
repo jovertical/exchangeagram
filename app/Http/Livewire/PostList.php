@@ -7,10 +7,14 @@ use Livewire\Component;
 
 class PostList extends Component
 {
+    protected $listeners = [
+        'postCreated' => '$refresh',
+    ];
+
     public function render()
     {
         return view('livewire.post-list', [
-            'posts' => Post::with('author')->get()
+            'posts' => Post::with('author')->latest()->get(),
         ]);
     }
 }

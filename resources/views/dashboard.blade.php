@@ -7,6 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+            <livewire:add-post-form></livewire:add-post-form>
             <livewire:post-list></livewire:post-list>
         </div>
     </div>
