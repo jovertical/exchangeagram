@@ -9,11 +9,19 @@ trait Followable
 {
     public function follow(User $user)
     {
+        if ($user->id == $this->id) {
+            return false;
+        }
+
         return $this->follows()->save($user);
     }
 
     public function unFollow(User $user)
     {
+        if ($user->id == $this->id) {
+            return false;
+        }
+
         return $this->follows()->detach($user);
     }
 

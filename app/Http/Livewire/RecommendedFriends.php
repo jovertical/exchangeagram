@@ -24,8 +24,12 @@ class RecommendedFriends extends Component
 
     public function render()
     {
+        $users = User::whereNotIn('id', [Auth::id()])
+            ->inRandomOrder()
+            ->simplePaginate(3);
+
         return view('livewire.recommended-friends', [
-            'users' => User::inRandomOrder()->simplePaginate(3),
+            'users' => $users,
         ]);
     }
 }
