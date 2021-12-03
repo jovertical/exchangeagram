@@ -51,15 +51,39 @@
                 <div class="mt-6 flex justify-between space-x-8">
                     <div class="flex space-x-6">
                         <span class="inline-flex items-center text-sm">
-                            <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                                <x-heroicon-s-heart class="h-5 w-5" aria-hidden="true" />
-                                <span class="font-medium text-gray-900">0</span>
-                                {{-- <span class="sr-only">likes</span> --}}
-                            </button>
+                            @if (! $post->isLikedBy(Auth::user()))
+                                <button 
+                                    type="button" 
+                                    class="inline-flex space-x-2  group"
+                                    wire:click="like"
+                                >
+                                    <x-heroicon-o-heart class="h-5 w-5 text-gray-400 group-hover:text-green-600" aria-hidden="true" />
+                                    
+                                    <span class="font-medium text-gray-900">
+                                        {{ $post->positiveLikes()->count() }}
+                                    </span>
+
+                                    {{-- <span class="sr-only">likes</span> --}}
+                                </button>
+                            @else
+                                <button 
+                                    type="button" 
+                                    class="inline-flex space-x-2 group"
+                                    wire:click="dislike"
+                                >
+                                    <x-heroicon-s-heart class="h-5 w-5 text-green-400 group-hover:text-red-600" aria-hidden="true" />
+                                    
+                                    <span class="font-medium text-gray-900">
+                                        {{ $post->positiveLikes()->count() }}
+                                    </span>
+                                    
+                                    {{-- <span class="sr-only">likes</span> --}}
+                                </button>
+                            @endif
                         </span>
 
                         <span class="inline-flex items-center text-sm">
-                            <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                            <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-600">
                                 <x-heroicon-s-chat-alt class="h-5 w-5" aria-hidden="true" />
                                 <span class="font-medium text-gray-900">0</span>
                                 {{-- <span class="sr-only">replies</span> --}}

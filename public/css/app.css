@@ -2138,6 +2138,22 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(75, 85, 99, var(--tw-text-opacity));
 }
+.hover\:text-indigo-500:hover {
+	--tw-text-opacity: 1;
+	color: rgba(99, 102, 241, var(--tw-text-opacity));
+}
+.hover\:text-green-500:hover {
+	--tw-text-opacity: 1;
+	color: rgba(16, 185, 129, var(--tw-text-opacity));
+}
+.hover\:text-red-600:hover {
+	--tw-text-opacity: 1;
+	color: rgba(220, 38, 38, var(--tw-text-opacity));
+}
+.hover\:text-green-600:hover {
+	--tw-text-opacity: 1;
+	color: rgba(5, 150, 105, var(--tw-text-opacity));
+}
 .hover\:underline:hover {
 	text-decoration: underline;
 }
@@ -2203,6 +2219,10 @@ select {
 .focus\:text-gray-500:focus {
 	--tw-text-opacity: 1;
 	color: rgba(107, 114, 128, var(--tw-text-opacity));
+}
+.focus\:text-green-500:focus {
+	--tw-text-opacity: 1;
+	color: rgba(16, 185, 129, var(--tw-text-opacity));
 }
 .focus\:outline-none:focus {
 	outline: 2px solid transparent;
@@ -2293,6 +2313,14 @@ select {
 .group:hover .group-hover\:text-gray-600 {
 	--tw-text-opacity: 1;
 	color: rgba(75, 85, 99, var(--tw-text-opacity));
+}
+.group:hover .group-hover\:text-red-600 {
+	--tw-text-opacity: 1;
+	color: rgba(220, 38, 38, var(--tw-text-opacity));
+}
+.group:hover .group-hover\:text-green-600 {
+	--tw-text-opacity: 1;
+	color: rgba(5, 150, 105, var(--tw-text-opacity));
 }
 @media (min-width: 640px) {
 

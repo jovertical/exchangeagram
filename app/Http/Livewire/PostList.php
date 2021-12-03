@@ -25,7 +25,7 @@ class PostList extends Component
     {
         $posts = Auth::user()
             ->feed()
-            ->with('author')
+            ->with(['author', 'likes'])
             ->get();
 
         return view('livewire.post-list', [
