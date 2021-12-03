@@ -6,9 +6,21 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
-            <livewire:add-post-form></livewire:add-post-form>
-            <livewire:post-list></livewire:post-list>
+        <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-12 lg:gap-8">
+            <x-navigation></x-navigation>
+
+            <main class="lg:col-span-9 xl:col-span-6">
+                <div>
+                    <livewire:add-post-form></livewire:add-post-form>
+                    <livewire:post-list></livewire:post-list>
+                </div>
+            </main>
+
+            <aside class="hidden xl:block xl:col-span-4">
+                <div class="sticky top-4 space-y-4">
+                    <livewire:recommended-friends></livewire:recommended-friends>
+                </div>
+            </aside>
         </div>
     </div>
 </x-app-layout>
