@@ -11,13 +11,19 @@ class AddPostForm extends Component
     use WithFileUploads;
 
     public $photo;
-    public $body = 'A handsome boi';
+    public $body = '';
+
+    protected $messages = [
+        'photo.required' => 'Please upload a photo',
+        'body.required' => 'Please enter a caption',
+        'body.min' => 'Caption must be at least 20 characters',
+    ];
 
     public function submit()
     {
         $this->validate([
             'photo' => 'required|image|max:4096', // 4MB Max
-            'body' => 'required|min:10',
+            'body' => 'required|min:20',
         ]);
 
         $post = Auth::user()->posts()->create([
@@ -25,7 +31,7 @@ class AddPostForm extends Component
         ]);
 
         $post->update([
-            'photo' => $this->photo->store('photos', 's3'),
+            'photo' => $this->photo->store('photos'),
         ]);
 
         $this->emit('postCreated', $post->id);

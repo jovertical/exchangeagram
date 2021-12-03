@@ -1,5 +1,15 @@
 <form wire:submit.prevent="submit" class="relative" x-data="Form()">
-    <div class="bg-white border border-gray-300 rounded-lg shadow-sm overflow-hidden focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
+    @if ($errors->any())
+        <x-alert color="red" title="Could not add post">
+            <ul role="list" class="list-disc pl-2 space-y-1">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </x-alert>
+    @endif
+
+    <div class="bg-white border border-gray-300 rounded-lg shadow-sm overflow-hidden focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500 @if($errors->any()) mt-6 @endif">
         <div class="relative" x-show="image">
             <img :src="image" class="h-96 w-full object-cover object-center" alt="" />
 

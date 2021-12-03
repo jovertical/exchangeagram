@@ -40,7 +40,7 @@
 
             <div class="flex-shrink-0">
                 <img class="h-96 w-full object-cover"
-                    src="{{ '/storage/' . $post->photo }}"
+                    src="{{ Storage::url($post->photo) }}"
                     alt="" />
             </div>
 
